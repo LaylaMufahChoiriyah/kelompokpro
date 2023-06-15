@@ -160,7 +160,7 @@ with st.container():
                   # X_pcA = pcA.fit_transform(X_pred)
                   t_data1= X_pred.reshape(-1, 1)
                   original =scaler.inverse_transform(t_data1)
-                  hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original}"
+                  hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
                   st.success(hasil)
             
             all = st.button("Submit")
