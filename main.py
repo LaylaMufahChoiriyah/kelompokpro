@@ -158,8 +158,8 @@ with st.container():
                   # pcA = PCA(n_components=4)
                   # # Melakukan fit transform pada data
                   # X_pcA = pcA.fit_transform(X_pred)
-                  t_data1= X_pred.reshape(-1, 1)
-                  original =scaler.inverse_transform(t_data1)
+                  # t_data1= X_pred.reshape(-1, 1)
+                  original =scaler.inverse_transform(X_pred)
                   hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
                   st.success(hasil)
             
