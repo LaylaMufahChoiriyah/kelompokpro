@@ -62,8 +62,6 @@ with st.container():
             st.write("Data didapat dari :")
             repo2 = "https://finance.yahoo.com/"
             st.markdown(f'[ Yahoo Finance ]({repo2})')
-            st.success(f"#### Plot Data : ")
-            df.plot(x='Date', y='Volume')
             col1,col2 = st.columns(2)
             with col1:
                 st.info("#### Data Type")
