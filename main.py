@@ -135,8 +135,8 @@ with st.container():
                 ('algo', GaussianNB())
             ])
 
-model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
-model_naive_3.fit(X_train, y_train)
+            model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
+            model_naive_3.fit(X_train, y_train)
         with implementasi:
             st.write("# Implementation")
             st.write("### Input Data :")
