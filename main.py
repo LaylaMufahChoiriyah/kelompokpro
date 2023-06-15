@@ -139,10 +139,10 @@ with st.container():
             Close = st.number_input("Close")
             def submit():
                   scaler = MinMaxScaler(feature_range=(0, 1))
-                  data1 = scaler.transform([[Open]])
-                  data2 = scaler.transform([[High]])
-                  data3 = scaler.transform([[Low]])
-                  data4 = scaler.transform([[Close]])
+                  data1 = scaler.fit_transform([[Open]])
+                  data2 = scaler.fit_transform([[High]])
+                  data3 = scaler.fit_transform([[Low]])
+                  data4 = scaler.fit_transform([[Close]])
             
                   X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0])]])
                   t_data1= X_pred.reshape(-1, 1)
@@ -152,7 +152,6 @@ with st.container():
             
             all = st.button("Submit")
             if all :
-                  st.balloons()
                   submit()
 
             # Open = st.number_input("Open")
