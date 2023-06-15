@@ -15,7 +15,7 @@ from sklearn.decomposition import PCA
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import RandomizedSearchCV
-
+import datetime
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Proyek Sains Data", page_icon='')
 
