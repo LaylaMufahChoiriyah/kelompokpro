@@ -80,22 +80,16 @@ with st.container():
             # transform univariate time series to supervised learning problem
             from numpy import array
             # split a univariate sequence into samples
-            def split_sequence(sequence, n_steps):
-                X, y = list(X), list(y)
-                for i in range(len(sequence)):
-                # find the end of this pattern
-                    end_ix = i + n_steps
-                # check if we are beyond the sequence
-                    if end_ix > len(sequence)-1:
-                        break
-                # gather input and output parts of the pattern
-                    # print(i, end_ix)
-                    seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
-                    X.append(seq_x)
-                    y.append(seq_y)
-                return array(X), array(y)
-            n_steps = 5
-            X, y = split_sequence(data['Open'], n_steps)
+            def df_to_X_y(df, window_size=2):
+              X, y = [], []
+            #   df_np = df.to_numpy()
+              for i in range(len(df) - window_size):
+                seq_x, seq_y = df[i:i+window_size], df[i+window_size]
+                X.append(seq_x)
+                y.append(seq_y)
+              return np.array(X), np.array(y)
+            window_size = 5
+            X, y = df_to_X_y(data['Open'], window_size)
             X.shape, y.shape
             st.info("#### Normalisasi ")
             scaler = MinMaxScaler(feature_range=(0,1))
