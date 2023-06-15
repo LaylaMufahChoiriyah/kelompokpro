@@ -63,7 +63,7 @@ with st.container():
             repo2 = "https://finance.yahoo.com/"
             st.markdown(f'[ Yahoo Finance ]({repo2})')
             st.success(f"#### Plot Data : ")
-            data['Open'].plot(figsize=(12,6)).autoscale(axis='x',tight=True)
+            df.plot(x='Date', y='Volume')
             col1,col2 = st.columns(2)
             with col1:
                 st.info("#### Data Type")
