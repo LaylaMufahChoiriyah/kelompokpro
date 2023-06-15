@@ -137,14 +137,16 @@ with st.container():
             High = st.number_input("High")
             Low = st.number_input("Low" )
             Close = st.number_input("Close")
+            Adj_Close = st.number_input("Adj Close")
             def submit():
                   scaler = MinMaxScaler(feature_range=(0, 1))
                   data1 = scaler.fit_transform([[Open]])
                   data2 = scaler.fit_transform([[High]])
                   data3 = scaler.fit_transform([[Low]])
                   data4 = scaler.fit_transform([[Close]])
+                  data5 = scaler.fit_transform([[Adj_Close]])
             
-                  X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0])]])
+                  X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0]),(data5[0][0])]])
                   t_data1= X_pred.reshape(-1, 1)
                   original = minmax.inverse_transform(t_data1)
                   hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
