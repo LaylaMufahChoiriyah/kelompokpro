@@ -136,4 +136,12 @@ with st.container():
             st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
         with implementasi:
             st.write("# Implementation")
-            st.write("### Masukkan Nomor :")
+            st.write("### Input Data :")
+            Date = st.date_input("Date",label, value=None, min_value=None, max_value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility="visible"
+            Open = st.number_input("Open")
+            High = st.number_input("High")
+            Low = st.number_input("Low" )
+            Close = st.number_input("Close")
+            Adj Close = st.number_input("Adj Close")
+            Volume = st.number_input("Volume")
+            result = st.button("Submit")
