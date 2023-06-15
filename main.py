@@ -120,7 +120,7 @@ with st.container():
             gNB.fit(X_train, y_train)
             y_pred=gNB.predict(X_train)
             st.write("## Akurasi :")
-            print(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
+            st.write(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
         with implementasi:
             st.write("# Implementation")
             st.write("### Add Review :")
