@@ -66,7 +66,14 @@ with st.container():
             st.info("Tipe data yang digunakan yaitu time series dari volume saham yang diambil dari rentang waktu 15 Juni 2022 sampai 15 Juni 2023. ")
             st.write("### Tentang Data :")
             st.info("Data yang digunakan merupakan data volume dari saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk (TLKM.JK) atau Telkomsel, yang mana data tersebut merupakan data histori harga dengan frekuensi harian yang diambil dari rentang waktu 15 Juni 2022 - 15 Juni 2023.")
-
+            st.write("### Penjelasan Dataset :")
+            st.write('1. Date : berisi tanggal jalannya perdagangan  dari tanggal 15 Juni 2022- 15 Juni 2023')
+            st.write('2. Open : berisi Harga pembukaan pada tanggal tersebut')
+            st.write('3. High : berisi Harga tertinggi pada tanggal tersebut')
+            st.write('4. Low : berisi Harga terendah pada tanggal tersebut')
+            st.write('5. Close : berisi Harga penutup pada tanggal tersebut')
+            st.write('6. Adj Close : berisi Harga penutupan yang disesuaikan dengan aksi korporasi seperti right issue, stock split atau stock reverset')
+            st.write('7. Volume : berisi Volume perdagangan (dalam satuan lembar)')
             col1,col2 = st.columns(2)
             with col1:
                 st.info("#### Data Type")
@@ -112,17 +119,6 @@ with st.container():
             X
             st.write("### Data Training")
             y
-            pipeline = Pipeline([
-                ('pca', PCA(n_components=4)),
-                ('algo', GaussianNB())
-            ])
-            
-            model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
-            model_naive_3.fit(X_train, y_train)
-            
-            st.write(f'Parameter Terbaik: {model_naive_3.best_params_}')
-            st.write(model_naive_3.score(X_train, y_train), model_naive_3.best_score_, model_naive_3.score(X_test, y_test))
-
         with model : 
             st.write("""# Model""")
             st.info("## Naïve Bayes")
@@ -137,15 +133,34 @@ with st.container():
         with implementasi:
             st.write("# Implementation")
             st.write("### Input Data :")
-            Date = st.date_input("Date",datetime.date(2019, 7, 6))
             Open = st.number_input("Open")
             High = st.number_input("High")
             Low = st.number_input("Low" )
             Close = st.number_input("Close")
-            Adj_Close = st.number_input("Adj Close")
-            Volume = st.number_input("Volume")
-            result = st.button("Submit")
-            # input = [[Open, High, Low, Close, Adj_Close, Volume]]
+             def submit():
+                  scaler = MinMaxScaler(feature_range=(0, 1))
+                  data1 = scaler.transform([[Open]])
+                  data2 = scaler.transform([[High]])
+                  data3 = scaler.transform([[Low]])
+                  data4 = scaler.transform([[Close]])
+            
+                  X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0])]])
+                  t_data1= X_pred.reshape(-1, 1)
+                  original = minmax.inverse_transform(t_data1)
+                  hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
+                  st.success(hasil)
+            
+               all = st.button("Submit")
+               if all :
+                  st.balloons()
+                  submit()
+
+            # Open = st.number_input("Open")
+            # High = st.number_input("High")
+            # Low = st.number_input("Low" )
+            # Close = st.number_input("Close")
+            # result = st.button("Submit")
+            # input = [[Open, High, Low, Close]]
             # FIRST_IDX = 0
             # predictresult = gNB.predict(input)[FIRST_IDX]
             # pcA = PCA(n_components=4)
