@@ -4,26 +4,17 @@ import numpy as np
 from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
 from numpy import array
-from sklearn import tree
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, precision_score, f1_score
-from sklearn.utils.validation import joblib
 import joblib
 from PIL import Image
 import io
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error, mean_absolute_error
 from sklearn.naive_bayes import GaussianNB
 from sklearn.decomposition import PCA
 from sklearn.model_selection import GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import RandomizedSearchCV
 
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Proyek Sains Data", page_icon='')
@@ -88,7 +79,6 @@ with st.container():
             
         with preprocessing : 
             st.write("""# Preprocessing""")
-            from numpy import array
             # split a univariate sequence into samples
             def split_sequence(sequence, n_steps):
                 X, y = list(), list()
@@ -122,6 +112,7 @@ with st.container():
             X
             st.write("###Data Training")
             y
+
 
         with model : 
             st.write("""# Model""")
