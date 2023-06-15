@@ -99,9 +99,12 @@ with st.container():
                 return array(X), array(y)
             n_steps = 5
             X, y = split_sequence(df['Open'], n_steps)
+            st.info("## Ukuran Data dan Target ")
+            st.warning("X")
             X.shape
+            st.warning("Y")
             y.shape
-            st.info("#### Normalisasi ")
+            st.info("## Normalisasi ")
             scaler = MinMaxScaler(feature_range=(0,1))
             scaled = scaler.fit_transform(X)
             scaled
