@@ -43,7 +43,7 @@ with st.container():
         repo = "https://github.com/LaylaMufahChoiriyah/kelompokpro"
         st.markdown(f'[ Link Repository Github ]({repo})')
         st.info("## Link Colaboratory")
-        repo1 = "https://colab.research.google.com/drive/1rQpD_c6EobkvysD6biIa-DGLrbRiiErQ?usp=sharing"
+        repo1 = "https://colab.research.google.com/drive/1JdiGufUe9eqsiB4vf-4GZkeFzewZtieK?usp=sharing"
         st.markdown(f'[ Link Colaboratory ]({repo1})')
         
        
