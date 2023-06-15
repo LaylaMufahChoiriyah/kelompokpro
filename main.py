@@ -81,7 +81,7 @@ with st.container():
             from numpy import array
             # split a univariate sequence into samples
             def split_sequence(sequence, n_steps):
-                X, y = list(), list()
+                X, y = list(X), list(y)
                 for i in range(len(sequence)):
                 # find the end of this pattern
                     end_ix = i + n_steps
