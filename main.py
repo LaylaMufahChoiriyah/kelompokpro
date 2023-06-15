@@ -146,11 +146,10 @@ with st.container():
             Volume = st.number_input("Volume")
             result = st.button("Submit")
             input = [[Date, Open, High, Low, Close, Adj_Close, Volume]]
-                input_norm = scaler.transform(input)
-                FIRST_IDX = 0
-                use_model = gNB
-                predictresult = use_model.predict(input)[FIRST_IDX]
-                st.write("## Akurasi :")
-                st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
+            FIRST_IDX = 0
+            use_model = gNB
+            predictresult = use_model.predict(input)[FIRST_IDX]
+            st.write("## Akurasi :")
+            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
 
                 
