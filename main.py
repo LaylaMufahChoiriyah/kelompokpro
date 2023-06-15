@@ -147,11 +147,7 @@ with st.container():
             result = st.button("Submit")
             input = [[Open, High, Low, Close, Adj_Close, Volume]]
             FIRST_IDX = 0
-            pcA = PCA(n_components=4)
-
-            # Melakukan fit transform pada data
-            X_pcA = pcA.fit_transform(input)
-            predictresult = gNB.predict(X_pcA)[FIRST_IDX]
+            predictresult = gNB.predict(input)[FIRST_IDX]
             st.write("## Akurasi :")
             st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, predictresult)}')
 
