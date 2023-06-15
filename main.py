@@ -84,7 +84,6 @@ with st.container():
                 
         with preprocessing : 
             st.write("""# Preprocessing""")
-            data.set_index("Date", inplace=True)
             from numpy import array
             # split a univariate sequence into samples
             def split_sequence(sequence, n_steps):
