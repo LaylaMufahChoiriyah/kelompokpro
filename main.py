@@ -146,10 +146,13 @@ with st.container():
             Volume = st.number_input("Volume")
             result = st.button("Submit")
             input = [[Date, Open, High, Low, Close, Adj_Close, Volume]]
+            pca = PCA(n_components=4)
+            # Melakukan fit transform pada data
+            X_pca = pca.fit_transform(input)
             FIRST_IDX = 0
             use_model = gNB
-            predictresult = use_model.predict(input)[FIRST_IDX]
+            predictresult = use_model.predict(X_pca)[FIRST_IDX]
             st.write("## Akurasi :")
-            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
+            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(X_pca, y_pred)}')
 
                 
