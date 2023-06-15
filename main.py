@@ -150,8 +150,8 @@ with st.container():
                   hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
                   st.success(hasil)
             
-               all = st.button("Submit")
-               if all :
+            all = st.button("Submit")
+            if all :
                   st.balloons()
                   submit()
 
