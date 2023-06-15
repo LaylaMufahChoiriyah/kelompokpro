@@ -98,7 +98,7 @@ with st.container():
                     y.append(seq_y)
                 return array(X), array(y)
             n_steps = 5
-            X, y = split_sequence(data, n_steps)
+            X, y = split_sequence(df['Open'],, n_steps)
             X.shape, y.shape
             st.info("#### Normalisasi ")
             scaler = MinMaxScaler(feature_range=(0,1))
