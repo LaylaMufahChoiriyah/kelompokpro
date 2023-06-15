@@ -112,11 +112,14 @@ with st.container():
             scaler = MinMaxScaler(feature_range=(0,1))
             scaled = scaler.fit_transform(X)
             scaled
+            pcA = PCA(n_components=4)
+            # Melakukan fit transform pada data
+            X_pcA = pcA.fit_transform(scaled)
             from sklearn.model_selection import train_test_split
-            X_train, X_test, y_train, y_test = train_test_split(scaled, y, test_size=0.2, random_state=0, shuffle=False)
+            X_train, X_test, y_train, y_test = train_test_split(X_pcA, y, test_size=0.2, random_state=0, shuffle=False)
             st.info("## Split Data ")
             st.write("### Data Test")
-            X
+            X_pcA
             st.write("### Data Training")
             y
         with model : 
@@ -152,9 +155,9 @@ with st.container():
                   data4 = scaler.fit_transform([[Close]])
             
                   X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0])]])
-                  pcA = PCA(n_components=1)
-                  # Melakukan fit transform pada data
-                  X_pcA = pcA.fit_transform(X_pred)
+                  # pcA = PCA(n_components=4)
+                  # # Melakukan fit transform pada data
+                  # X_pcA = pcA.fit_transform(X_pred)
                   t_data1= X_pred.reshape(-1, 1)
                   original =scaler.inverse_transform(t_data1)
                   hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
