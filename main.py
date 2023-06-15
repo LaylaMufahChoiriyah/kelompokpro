@@ -121,7 +121,7 @@ with st.container():
             model_naive_3.fit(X_train, y_train)
             
             st.write(f'Parameter Terbaik: {model_naive_3.best_params_}')
-            st.warning(model_naive_3.score(X_train, y_train), model_naive_3.best_score_, model_naive_3.score(X_test, y_test))
+            st.write(model_naive_3.score(X_train, y_train), model_naive_3.best_score_, model_naive_3.score(X_test, y_test))
 
         with model : 
             st.write("""# Model""")
