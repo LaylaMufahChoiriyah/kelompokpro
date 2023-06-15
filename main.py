@@ -77,11 +77,8 @@ with st.container():
                 st.info("#### Empty Data")
                 st.write(df.isnull().sum())
             
-            
-                #===================================
              
-                
-                
+            
         with preprocessing : 
             st.write("""# Preprocessing""")
             from numpy import array
@@ -101,7 +98,7 @@ with st.container():
                     y.append(seq_y)
                 return array(X), array(y)
             n_steps = 5
-            X, y = split_sequence(data['Open'], n_steps)
+            X, y = split_sequence(data, n_steps)
             X.shape, y.shape
             st.info("#### Normalisasi ")
             scaler = MinMaxScaler(feature_range=(0,1))
