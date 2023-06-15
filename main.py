@@ -150,6 +150,6 @@ with st.container():
             use_model = gNB
             predictresult = use_model.predict(input)[FIRST_IDX]
             st.write("## Akurasi :")
-            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(pca, y_pred)}')
+            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, input)}')
 
                 
