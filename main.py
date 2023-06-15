@@ -145,7 +145,7 @@ with st.container():
             Adj_Close = st.number_input("Adj Close")
             Volume = st.number_input("Volume")
             result = st.button("Submit")
-            input = [[Date, Open, High, Low, Close, Adj_Close, Volume]]
+            input = [[Open, High, Low, Close, Adj_Close, Volume]]
             pca = PCA(n_components=4)
             # Melakukan fit transform pada data
             X_pca = pca.fit_transform(input)
