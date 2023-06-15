@@ -42,7 +42,6 @@ with st.container():
         st.write(" - Layla Mufah Choiriyah - 200411100052")
         st.write("- Diah Kamalia - 200411100061")
         st.info("## Repository Github")
-        st.write(" Click the link below to access the source code")
         repo = "https://github.com/LaylaMufahChoiriyah/kelompokpro"
         st.markdown(f'[ Link Repository Github ]({repo})')
         st.info("## Link Colaboratory")
@@ -54,7 +53,6 @@ with st.container():
         st.title("PSD B - Telkomsel Finance")
         data, preprocessing, model, implementasi = st.tabs(["Data","Preprocessing", "Model", "Implementasi"])
         with data:
-            st.write("# About Dataset")
             st.write("""# Load Dataset""")
             df = pd.read_csv("https://raw.githubusercontent.com/diahkamalia/DataMining1/main/TLKM.JK.csv")
             df
@@ -64,7 +62,8 @@ with st.container():
             st.write("Data didapat dari :")
             repo2 = "https://finance.yahoo.com/"
             st.markdown(f'[ Yahoo Finance ]({repo2})')
-
+            st.success(f"#### Plot Data : ")
+            data['Open'].plot(figsize=(12,6)).autoscale(axis='x',tight=True)
             col1,col2 = st.columns(2)
             with col1:
                 st.info("#### Data Type")
@@ -72,12 +71,15 @@ with st.container():
             with col2:
                 st.info("#### Empty Data")
                 st.write(df.isnull().sum())
+            
+            
                 #===================================
              
                 
                 
         with preprocessing : 
             st.write("""# Preprocessing""")
+            
 
         with model : 
             st.write("""# Model""")
