@@ -66,7 +66,12 @@ with st.container():
             sumdata = len(df)
             st.success(f"#### Total Data : {sumdata}")
             st.write("## Dataset Explanation")
-            st.write("Data didapat dari :")
+            st.write("### Sumber Data :")
+            st.info("Data yang kami gunakan merupakan data volume historical prices dari Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk (TLKM.JK) atau Telkomsel dari website Yahoo Finance. ")
+            st.write("### Tipe data :")
+            st.info("Tipe data yang digunakan yaitu time series dari volume saham yang diambil dari rentang waktu 15 Juni 2022 sampai 15 Juni 2023. ")
+            st.write("### Tentang Data :")
+            st.info("Data yang digunakan merupakan data volume dari saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk (TLKM.JK) atau Telkomsel, yang mana data tersebut merupakan data histori harga dengan frekuensi harian yang diambil dari rentang waktu 15 Juni 2022 - 15 Juni 2023.")
             repo2 = "https://finance.yahoo.com/"
             st.markdown(f'[ Yahoo Finance ]({repo2})')
             col1,col2 = st.columns(2)
