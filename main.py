@@ -130,13 +130,13 @@ with st.container():
             y_pred=gNB.predict(X_train)
             st.write("## Akurasi :")
             st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
-            pipeline = Pipeline([
-                ('pca', PCA(n_components=4)),
-                ('algo', GaussianNB())
-            ])
+            # pipeline = Pipeline([
+            #     ('pca', PCA(n_components=4)),
+            #     ('algo', GaussianNB())
+            # ])
 
-            model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
-            model_naive_3.fit(X_train, y_train)
+            # model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
+            # model_naive_3.fit(X_train, y_train)
         with implementasi:
             st.write("# Implementation")
             st.write("### Input Data :")
@@ -152,6 +152,9 @@ with st.container():
                   data4 = scaler.fit_transform([[Close]])
             
                   X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0])]])
+                  pcA = PCA(n_components=1)
+                  # Melakukan fit transform pada data
+                  X_pcA = pcA.fit_transform(X_pred)
                   t_data1= X_pred.reshape(-1, 1)
                   original =scaler.inverse_transform(t_data1)
                   hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
