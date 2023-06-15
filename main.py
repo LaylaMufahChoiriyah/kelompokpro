@@ -108,13 +108,19 @@ with st.container():
             scaler = MinMaxScaler(feature_range=(0,1))
             scaled = scaler.fit_transform(X)
             scaled
+            from sklearn.model_selection import train_test_split
+            X_train, X_test, y_train, y_test = train_test_split(scaled, y, test_size=0.2, random_state=0, shuffle=False)
+            st.info("## split Data ")
+            st.write("Data Test")
+            X
+            st.write("Data Training")
+            y
 
         with model : 
             st.write("""# Model""")
             st.info("## Naïve Bayes")
             # Split Data
-            from sklearn.model_selection import train_test_split
-            X_train, X_test, y_train, y_test = train_test_split(scaled, y, test_size=0.2, random_state=0, shuffle=False)
+            
             # Training
             gNB = GaussianNB()
             gNB.fit(X_train, y_train)
