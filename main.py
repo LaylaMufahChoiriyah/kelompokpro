@@ -137,7 +137,7 @@ with st.container():
         with implementasi:
             st.write("# Implementation")
             st.write("### Input Data :")
-            Date = st.date_input("Date",label, value=None, min_value=None, max_value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility="visible"
+            Date = st.date_input("Date",datetime.date(2019, 7, 6))
             Open = st.number_input("Open")
             High = st.number_input("High")
             Low = st.number_input("Low" )
