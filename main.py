@@ -108,9 +108,9 @@ with st.container():
             from sklearn.model_selection import train_test_split
             X_train, X_test, y_train, y_test = train_test_split(scaled, y, test_size=0.2, random_state=0, shuffle=False)
             st.info("## Split Data ")
-            st.write("###Data Test")
+            st.write("### Data Test")
             X
-            st.write("###Data Training")
+            st.write("### Data Training")
             y
             pipeline = Pipeline([
                 ('pca', PCA(n_components=4)),
@@ -120,8 +120,8 @@ with st.container():
             model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
             model_naive_3.fit(X_train, y_train)
             
-            st.write(f'best_parameter: {model_naive_3.best_params_}')
-            st.write(model_naive_3.score(X_train, y_train), model_naive_3.best_score_, model_naive_3.score(X_test, y_test))
+            st.write(f'Parameter Terbaik: {model_naive_3.best_params_}')
+            st.warning(model_naive_3.score(X_train, y_train), model_naive_3.best_score_, model_naive_3.score(X_test, y_test))
 
         with model : 
             st.write("""# Model""")
