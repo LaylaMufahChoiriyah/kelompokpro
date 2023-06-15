@@ -111,8 +111,16 @@ with st.container():
 
         with model : 
             st.write("""# Model""")
-            st.info("## K - Nearest Neighbor")
-
+            st.info("## Naïve Bayes")
+            # Split Data
+            from sklearn.model_selection import train_test_split
+            X_train, X_test, y_train, y_test = train_test_split(scaled, y, test_size=0.2, random_state=0, shuffle=False)
+            # Training
+            gNB = GaussianNB()
+            gNB.fit(X_train, y_train)
+            y_pred=gNB.predict(X_train)
+            st.write("## Akurasi :")
+            print(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
         with implementasi:
             st.write("# Implementation")
             st.write("### Add Review :")
