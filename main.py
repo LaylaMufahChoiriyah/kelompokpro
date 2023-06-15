@@ -148,7 +148,7 @@ with st.container():
             
                   X_pred = gNB.predict([[(data1[0][0]),(data2[0][0]),(data3[0][0]),(data4[0][0]),(data5[0][0])]])
                   t_data1= X_pred.reshape(-1, 1)
-                  original = minmax.inverse_transform(t_data1)
+                  original =scaler.inverse_transform(t_data1)
                   hasil =f"Prediksi Hasil Peramalan Pada Harga Penutupan Saham Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk adalah  : {original[0][0]}"
                   st.success(hasil)
             
