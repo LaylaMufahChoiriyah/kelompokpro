@@ -110,10 +110,10 @@ with st.container():
             scaled
             from sklearn.model_selection import train_test_split
             X_train, X_test, y_train, y_test = train_test_split(scaled, y, test_size=0.2, random_state=0, shuffle=False)
-            st.info("## split Data ")
-            st.write("Data Test")
+            st.info("## Split Data ")
+            st.write("###Data Test")
             X
-            st.write("Data Training")
+            st.write("###Data Training")
             y
 
         with model : 
@@ -126,7 +126,7 @@ with st.container():
             gNB.fit(X_train, y_train)
             y_pred=gNB.predict(X_train)
             st.write("## Akurasi :")
-            st.write(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
+            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, y_pred)}')
         with implementasi:
             st.write("# Implementation")
-            st.write("### Add Review :")
+            st.write("### Masukkan Nomor :")
