@@ -142,6 +142,6 @@ with st.container():
             High = st.number_input("High")
             Low = st.number_input("Low" )
             Close = st.number_input("Close")
-            Adj Close = st.number_input("Adj Close")
+            Adj_Close = st.number_input("Adj Close")
             Volume = st.number_input("Volume")
             result = st.button("Submit")
