@@ -112,7 +112,16 @@ with st.container():
             X
             st.write("###Data Training")
             y
-
+            pipeline = Pipeline([
+                ('pca', PCA(n_components=4)),
+                ('algo', GaussianNB())
+            ])
+            
+            model_naive_3 = RandomizedSearchCV(pipeline, {}, cv=4, n_iter=50, n_jobs=-1, verbose=1, random_state=42)
+            model_naive_3.fit(X_train, y_train)
+            
+            st.write(f'best_parameter: {model_naive_3.best_params_}')
+            st.write(model_naive_3.score(X_train, y_train), model_naive_3.best_score_, model_naive_3.score(X_test, y_test))
 
         with model : 
             st.write("""# Model""")
