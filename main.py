@@ -148,7 +148,9 @@ with st.container():
             input = [[Open, High, Low, Close, Adj_Close, Volume]]
             FIRST_IDX = 0
             predictresult = gNB.predict(input)[FIRST_IDX]
+            pcA = PCA(n_components=4)
+            X_pcA = pcA.fit_transform(predictresult)
             st.write("## Akurasi :")
-            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, predictresult)}')
+            st.info(f'Akurasi dari Mean Absolute Percentage Error adalah = {mean_absolute_percentage_error(y_train, X_pcA)}')
 
                 
