@@ -144,7 +144,6 @@ with st.container():
             High = st.number_input("High")
             Low = st.number_input("Low" )
             Close = st.number_input("Close")
-            Adj_Close = st.number_input("Adj Close")
             def submit():
                   scaler = MinMaxScaler(feature_range=(0, 1))
                   data1 = scaler.fit_transform([[Open]])
